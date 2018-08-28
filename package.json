@@ -1,0 +1,39 @@
+{
+  "name": "stackoverflowlite",
+  "version": "1.0.0",
+  "description": "Developing a lite version of Stackoverflow ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel server.js --out-dir build", 
+    "dev-start": "babel-watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tyrese1/Stackoverflowlite.git"
+  },
+  "keywords": [
+    "es6",
+    "es5",
+    "node",
+    "express",
+    "postgressql"
+  ],
+  "author": "tarhe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tyrese1/Stackoverflowlite/issues"
+  },
+  "homepage": "https://github.com/Tyrese1/Stackoverflowlite#readme",
+  "dependencies": {
+    "babel-watch": "^2.0.7",
+    "express": "^4.16.3",
+    "moment": "^2.22.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon-webpack-plugin": "^4.0.3"
+  }
+}
