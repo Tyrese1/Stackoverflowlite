@@ -1,5 +1,9 @@
 import express from 'express';
 import Question from './src/controllers/Question';
+<<<<<<< HEAD
+=======
+import Answer from './src/controllers/Answer';
+>>>>>>> 28d9df8bd8e8db2cecda320c4cda061133b60ae0
 
 const app = express()
 
@@ -19,7 +23,14 @@ app.get('/api/v1/questions/:id', Question.getOne);
 app.put('/api/v1/questions/:id', Question.update);
 app.delete('/api/v1/questions/:id', Question.delete);
 
+<<<<<<< HEAD
 
+=======
+//Answer operation endpoint
+app.post('/api/v1/answers/', Answer.create); 
+app.put('/api/v1/questions/:id/answers/:id', Answer.update);
+//app.put('/api/v1/answers/:id', Answer.update);
+>>>>>>> 28d9df8bd8e8db2cecda320c4cda061133b60ae0
 
 app.listen(3000)
 console.log('app running on port ', 3000);
