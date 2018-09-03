@@ -1,13 +1,7 @@
 import express from 'express';
 import Question from './src/controllers/Question';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import Answer from './src/controllers/Answer';
->>>>>>> 28d9df8bd8e8db2cecda320c4cda061133b60ae0
-=======
-import Answer from './src/controllers/Answer';
->>>>>>> 28d9df8bd8e8db2cecda320c4cda061133b60ae0
+import Auth from './src/controllers/auth';
 
 const app = express()
 
@@ -19,7 +13,14 @@ app.get('/', (req, res) => {
 //Signup and login operation endpoint
 // app.post('/api/auth/signup', Question.create);
 // app.post('/api/auth/login', Question.create);
+
+// const userController = require('../src/controllers/user');
+
+
 //Question operarion endpoint
+app.post('/api/v1/auth', Auth.create);
+app.get('/api/v1/auth', Auth.getAll);
+app.get('/api/v1/auth/:id', Auth.getOne);
 app.post('/api/v1/questions/:id/answers', Question.create);
 app.post('/api/v1/questions', Question.create);
 app.get('/api/v1/questions', Question.getAll);
@@ -27,20 +28,10 @@ app.get('/api/v1/questions/:id', Question.getOne);
 app.put('/api/v1/questions/:id', Question.update);
 app.delete('/api/v1/questions/:id', Question.delete);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> 28d9df8bd8e8db2cecda320c4cda061133b60ae0
 //Answer operation endpoint
 app.post('/api/v1/answers/', Answer.create); 
 app.put('/api/v1/questions/:id/answers/:id', Answer.update);
 //app.put('/api/v1/answers/:id', Answer.update);
-<<<<<<< HEAD
->>>>>>> 28d9df8bd8e8db2cecda320c4cda061133b60ae0
-=======
->>>>>>> 28d9df8bd8e8db2cecda320c4cda061133b60ae0
 
 app.listen(3000)
 console.log('app running on port ', 3000);
