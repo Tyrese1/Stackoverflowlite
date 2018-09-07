@@ -13,18 +13,18 @@ pool.on('connect', () => {
 });
 
 /**
- * Create Reflection Table
+ * Create Question Table
  */
 const createQuestionTable = () => {
   const queryText =
     `CREATE TABLE IF NOT EXISTS
       questions(
         id UUID PRIMARY KEY,
-        success TEXT NOT NULL,        
-        owner_id UUID NOT NULL,
+        user_question TEXT NOT NULL,        
+        question_id UUID NOT NULL,
         created_date TIMESTAMP,
         modified_date TIMESTAMP,
-        FOREIGN KEY (owner_id) REFERENCES users (id) ON DELETE CASCADE
+        FOREIGN KEY (question_id) REFERENCES users (id) ON DELETE CASCADE
       )`;
 
   pool.query(queryText)
@@ -64,10 +64,36 @@ const createUserTable = () => {
 }
 
 /**
- * Drop Reflection Table
+ * Create Answer Table
+ */
+const createQuestionTable = () => {
+  const queryText =
+    `CREATE TABLE IF NOT EXISTS
+      answers(
+        id UUID PRIMARY KEY,
+        user_answer TEXT NOT NULL,        
+        answer_id UUID NOT NULL,
+        created_date TIMESTAMP,
+        modified_date TIMESTAMP,
+        FOREIGN KEY (answer_id) REFERENCES users (id) ON DELETE CASCADE
+      )`;
+
+  pool.query(queryText)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+}
+
+/**
+ * Drop Question Table
  */
 const dropQuestionTable = () => {
-  const queryText = 'DROP TABLE IF EXISTS reflections returning *';
+  const queryText = 'DROP TABLE IF EXISTS questions returning *';
   pool.query(queryText)
     .then((res) => {
       console.log(res);
