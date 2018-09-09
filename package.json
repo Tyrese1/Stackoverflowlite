@@ -4,9 +4,9 @@
   "description": "Developing a lite version of Stackoverflow ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel server.js --out-dir build",
     "dev-start": "babel-watch server.js"
+   
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.7",
+    "eslint": "^5.5.0",
     "nodemon-webpack-plugin": "^4.0.3"
   }
 }
