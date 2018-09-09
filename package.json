@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel server.js --out-dir build",
-    "dev-start": "babel-watch server.js",
-    "test": "npm run lint",
-    "lint": "eslint src test"
+    "dev-start": "babel-watch server.js"
+   
   },
   "repository": {
     "type": "git",
