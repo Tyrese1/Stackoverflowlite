@@ -27,10 +27,14 @@ app.put('/api/v1/questions/:id', Auth.verifyToken, Question.update);
 app.delete('/api/v1/questions/:id', Auth.verifyToken, Question.delete);
 app.post('/api/v1/auth/signup', UserApiDatabase.create);
 app.post('/api/v1/auth/login', UserApiDatabase.login);
-app.delete('/api/v1/auth/me', Auth.verifyToken, UserApiDatabase.delete);
+app.delete('/api/v1/auth/delete', Auth.verifyToken, UserApiDatabase.delete);
+
+app.post('/api/v1/users', UserApiDatabase.create);
+app.post('/api/v1/users/login', UserApiDatabase.login);
 
 //Answer endpoints
-app.post('/api/v1/questions/questions/:id/answers', Auth.verifyToken, Answer.create);
+app.post('/api/v1/questions/questions/:id/answers', Auth.verifyToken, Answer.getOneQA);
+// app.post('/api/v1/questions/questions/:id/answers', Auth.verifyToken, Answer.getOne);
 app.post('/api/v1/questions/answers', Auth.verifyToken, Answer.create);
 
 

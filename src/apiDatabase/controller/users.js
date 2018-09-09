@@ -37,7 +37,7 @@ const User = {
       return res.status(201).send({ token });
     } catch(error) {
       if (error.routine === '_bt_check_unique') {
-        return res.status(400).send({ 'message': 'User with that EMAIL already exist' })
+        return res.status(400).send({ 'message': 'User with that email already exist' })
       }
       return res.status(400).send(error);
     }

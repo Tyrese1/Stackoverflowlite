@@ -93,6 +93,24 @@ const Answer  = {
     }
   },
   /**
+   * Get A answer-to-question
+   * @param {object} req 
+   * @param {object} res
+   * @returns {object} answer-to-question object
+   */
+  async getOneQA(req, res) {
+    const text = 'SELECT * FROM answers WHERE id = $1 AND answer_id = $2';
+    try {
+      const { rows } = await db.query(text, [req.params.id, req.user.id]);
+      if (!rows[0]) {
+        return res.status(404).send({'message': 'answer  not found'});
+      }
+      return res.status(200).send(rows[0]);
+    } catch(error) {
+      return res.status(400).send(error)
+    }
+  },
+  /**
    * Delete A answer 
    * @param {object} req 
    * @param {object} res 
